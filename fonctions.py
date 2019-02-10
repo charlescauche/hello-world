@@ -13,3 +13,13 @@ def random_word():
 	pendu_words = [word for word in pendu_words if len(word)==cd.max_letter] # we filter on the 8 length words only
 
 	return pendu_words[randrange(len(pendu_words))] # we randomly choose the word from the pendu words list
+
+
+
+def pos_letter(l, w):
+	"""
+	Function to get the position of a letter l in a word
+	Return a list with the letter positions(s)
+	"""
+	pos_list = [pos for pos,char in enumerate(w) if char == l]
+	return pos_list
