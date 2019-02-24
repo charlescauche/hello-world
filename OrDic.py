@@ -95,6 +95,14 @@ class OrDic():
 		for i in self.keys_list:
 			yield i,self[i]
 
+	def __add__(self,to_add):
+		addition = OrDic()
+		addition.keys_list = self.keys_list + to_add.keys_list
+		addition.values_list = self.values_list + to_add.values_list
+		return addition
+
+
+
 
 
 
@@ -110,67 +118,105 @@ class OrDic():
 
 #Testins my class
 
-print("-----------------")
-print("Test 1")
-a = OrDic()
-#a["a"]=2
-print(a)
-print("-----------------")
+# print("-----------------")
+# print("Test 1")
+# a = OrDic()
+# #a["a"]=2
+# print(a)
+# print("-----------------")
 
-print("-----------------")
-print("Test 2")
-d={"a":1,"b":2,"c":3,"d":4}
-d.items()
-b= OrDic(d)
-print(b)
-print("-----------------")
+# print("-----------------")
+# print("Test 2")
+# d={"a":1,"b":2,"c":3,"d":4}
+# d.items()
+# b= OrDic(d)
+# print(b)
+# print("-----------------")
 
-print("-----------------")
-print("Test 3")
-c = OrDic(a=1,b=2,c=3,d=4)
-print(c)
-print(c.c)
-print(c["c"])
-print("-----------------")
+# print("-----------------")
+# print("Test 3")
+# c = OrDic(a=1,b=2,c=3,d=4)
+# print(c)
+# print(c.c)
+# print(c["c"])
+# print("-----------------")
 
-print("-----------------")
-print("Test 4")
-c = OrDic(a=1,b=2,c=3,d=4)
-print(c)
-print(c.c)
-print(c["c"])
-print("-----------------")
+# print("-----------------")
+# print("Test 4")
+# c = OrDic(a=1,b=2,c=3,d=4)
+# print(c)
+# print(c.c)
+# print(c["c"])
+# print("-----------------")
 
-print("-----------------")
-print("Test 4")
-print("The object c has a length of :",len(c))
-c["b"]=20
-c["e"]=5
-c["w"] =7
-c["j"] =9 
-print("The object c has a length of :",len(c))
-del c["b"]
-del c["f"]
-print(c)
-print("a" in c)
-print("b" in c)
-print("The object c has a length of :",len(c))
-print(c)
+# print("-----------------")
+# print("Test 4")
+# print("The object c has a length of :",len(c))
+# c["b"]=20
+# c["e"]=5
+# c["w"] =7
+# c["j"] =9 
+# print("The object c has a length of :",len(c))
+# del c["b"]
+# del c["f"]
+# print(c)
+# print("a" in c)
+# print("b" in c)
+# print("The object c has a length of :",len(c))
+# print(c)
 
-print("-----------------")
-print("Test 5")
-c.sort()
-print(c)
-c.reverse()
-print(c)
+# print("-----------------")
+# print("Test 5")
+# c.sort()
+# print(c)
+# c.reverse()
+# print(c)
+
+# print("-----------------")
+# print("Test 6")
+# for i in c.keys():
+# 	print(i)
+# for i in c.values():
+# 	print(i)
+# c.sort()
+# for i in c.items():
+# 	print(i)
+
+# print("-----------------")
+# print("Test 7")
+# print(c)
+# print(b)
+# test = c + b
+# print(test)
 
 
-print("-----------------")
-print("Test 6")
-for i in c.keys():
-	print(i)
-for i in c.values():
-	print(i)
-c.sort()
-for i in c.items():
-	print(i)
+fruits = OrDic()
+print(fruits)
+print("Anchor 1")
+fruits["pomme"] = 52
+fruits["poire"] = 34
+fruits["prune"] = 128
+fruits["melon"] = 15
+print(fruits)
+print("Anchor 2")
+fruits.sort()
+print(fruits)
+
+legumes = OrDic(carotte = 26, haricot = 48)
+print(legumes)
+print(len(legumes))
+legumes.reverse()
+fruits = fruits + legumes
+print(fruits)
+del fruits['haricot']
+print(fruits)
+print('haricot' in fruits)
+print(legumes['haricot'])
+
+for cle in legumes.keys():
+	print(cle)
+
+print(legumes.keys())
+print(legumes.values())
+for nom, qtt in legumes.items():
+	print("{0} ({1})".format(nom, qtt))
